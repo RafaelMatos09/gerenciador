@@ -1,4 +1,4 @@
-package model;
+package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class OlaMundoServlet
  */
-@WebServlet(urlPatterns="/ola")
+/* @WebServlet(urlPatterns="/ola") */
 public class OlaMundoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

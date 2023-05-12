@@ -1,28 +1,21 @@
-package model;
+package acao;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class NovaEmpresaServlet
- */
-@WebServlet("/novaEmpresa")
-public class NovaEmpresaServlet extends HttpServlet {
+import model.Banco;
+import model.Empresa;
+
+public class NovaEmpresa {
 	
-	private static final long serialVersionUID = 1L;
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		
 		System.out.println("Cadastrando nova empresa");
 		
 		String nomeEmpresa = request.getParameter("nome");
@@ -43,14 +36,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
-		response.sendRedirect("listaEmpresas");
+		response.sendRedirect("entrada?acao=ListaEmpresas");
 		
-		/*
-		 * //chamar o JPS RequestDispatcher rd =
-		 * request.getRequestDispatcher("/listaEmpresas.jsp");
-		 * request.setAttribute("empresa", empresa.getNome()); rd.forward(request,
-		 * response);
-		 */
 	}
-
 }
