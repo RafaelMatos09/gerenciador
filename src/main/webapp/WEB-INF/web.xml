@@ -4,42 +4,36 @@
   <welcome-file-list>
     <welcome-file>bem-vindo.html</welcome-file>  
   </welcome-file-list> 
+  
+    <filter>
+    <filter-name>MF</filter-name>
+    <filter-class>servlet.MonitorandoFilter</filter-class>
+</filter>
 
- <!--  <login-config>
-      <auth-method>BASIC</auth-method>
-  </login-config>
+<filter-mapping>
+    <filter-name>MF</filter-name>
+    <url-pattern>/entrada</url-pattern>
+</filter-mapping>  
+    
+  <filter>
+    <filter-name>AF</filter-name>
+    <filter-class>servlet.AutorizacaoFilter</filter-class>
+</filter>
 
-  <security-role>
-        <role-name>ADMINISTRADOR</role-name>
-  </security-role>
+<filter-mapping>
+    <filter-name>AF</filter-name>
+    <url-pattern>/entrada</url-pattern>
+</filter-mapping>
 
-  <security-role>
-        <role-name>USUARIO</role-name>
-  </security-role>
+ <filter>
+    <filter-name>CF</filter-name>
+    <filter-class>servlet.ControladorFilter</filter-class>
+</filter>
 
-  <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>acesso controlador</web-resource-name>
-            <url-pattern>/entrada</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>ADMINISTRADOR</role-name>
-        </auth-constraint>
-  </security-constraint>
+<filter-mapping>
+    <filter-name>CF</filter-name>
+    <url-pattern>/entrada</url-pattern>
+</filter-mapping>
 
-  <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>acesso a paginas html</web-resource-name>
-            <url-pattern>*.html</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>USUARIO</role-name>
-        </auth-constraint>
-  </security-constraint> -->
-
-<session-config>
-    <!-- 10 min -->
-    <session-timeout>10</session-timeout>
-</session-config>
  
 </web-app>

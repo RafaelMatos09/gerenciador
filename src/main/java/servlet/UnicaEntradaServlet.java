@@ -19,7 +19,7 @@ import acao.NovaEmpresaForm;
 import acao.RemoveEmpresa;
 
 
-@WebServlet("/entrada")
+/*@WebServlet(urlPatterns="/entrada")*/
 public class UnicaEntradaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,15 +28,16 @@ public class UnicaEntradaServlet extends HttpServlet {
 		
 		String paramAcao = request.getParameter("acao");
 
-		HttpSession sessao = request.getSession();
-
-		boolean usuarioNaoEstaLogado = (sessao.getAttribute("usuarioLogado") == null);
-		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
-
-		if( ehUmaAcaoProtegida && usuarioNaoEstaLogado) {
-			response.sendRedirect("entrada?acao=LoginForm");
-			return;	
-		}
+		/*
+		 * HttpSession sessao = request.getSession();
+		 * 
+		 * boolean usuarioNaoEstaLogado = (sessao.getAttribute("usuarioLogado") ==
+		 * null); boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") ||
+		 * paramAcao.equals("LoginForm"));
+		 * 
+		 * if( ehUmaAcaoProtegida && usuarioNaoEstaLogado) {
+		 * response.sendRedirect("entrada?acao=LoginForm"); return; }
+		 */
 
 		
 		String nomeDaClasse = "acao." + paramAcao;
